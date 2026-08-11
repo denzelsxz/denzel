@@ -1,0 +1,72 @@
+filmes = []
+
+while True:
+    print("\n===== NETFLIX =====")
+    print("1 - Cadastrar filme")
+    print("2 - Listar filmes")
+    print("3 - Atualizar filme")
+    print("4 - Excluir filme")
+    print("5 - Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    # CREATE - Cadastrar filme
+    if opcao == "1":
+        titulo = input("Digite o nome do filme: ")
+        filmes.append(titulo)
+        print("Filme cadastrado!")
+
+    # READ - Listar filmes
+    elif opcao == "2":
+        if len(filmes) == 0:
+            print("Nenhum filme cadastrado.")
+        else:
+            print("\nFilmes cadastrados:")
+
+            for filme in filmes:
+                print(f"- {filme}")
+
+    # UPDATE - Atualizar filme
+    elif opcao == "3":
+        if len(filmes) == 0:
+            print("Nenhum filme cadastrado.")
+        else:
+            print("\nFilmes cadastrados:")
+
+            for i, filme in enumerate(filmes, start=1):
+                print(f"{i} - {filme}")
+
+            escolha = int(input("Digite o número do filme que deseja atualizar: "))
+
+            if escolha >= 1 and escolha <= len(filmes):
+                novo_filme = input("Digite o novo nome do filme: ")
+                filmes[escolha - 1] = novo_filme
+                print("Filme atualizado!")
+            else:
+                print("Número inválido.")
+
+    # DELETE - Excluir filme
+    elif opcao == "4":
+        if len(filmes) == 0:
+            print("Nenhum filme cadastrado.")
+        else:
+            print("\nFilmes cadastrados:")
+
+            for i, filme in enumerate(filmes, start=1):
+                print(f"{i} - {filme}")
+
+            escolha = int(input("Digite o número do filme que deseja excluir: "))
+
+            if escolha >= 1 and escolha <= len(filmes):
+                filme_excluido = filmes.pop(escolha - 1)
+                print(f"Filme '{filme_excluido}' excluído!")
+            else:
+                print("Número inválido.")
+
+    # SAIR
+    elif opcao == "5":
+        print("Programa encerrado.")
+        break
+
+    else:
+        print("Opção inválida!")
