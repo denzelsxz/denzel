@@ -51,3 +51,15 @@ Foi escolhida a linguagem Python para o desenvolvimento do sistema, por ser a li
 ## DEC13 - Funcionamento sem internet
 
 Foi definido que o sistema não dependerá de conexão com a internet, pois todas as operações do CRUD serão realizadas localmente.
+
+# Decisões da refatoração
+
+## DEC 14 - Estrutura de armazenamento dos dados
+
+### Decisão:
+
+Foi definida a utilização de listas e dicionários, porque o código atual só usa variáveis para guardar seus dados. O dicionário permitirá organizar os atributos de cada filme em uma única estrutura, enquanto a lista permitirá armazenar múltiplos filmes.
+
+### Consequência:
+
+O sistema poderá armazenar vários filmes em uma única estrutura, facilitando as operações de cadastro, listagem, atualização e exclusão. A remoção de um filme também fará com que os índices dos elementos seguintes sejam reorganizados automaticamente.
