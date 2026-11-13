@@ -54,12 +54,31 @@ Foi definido que o sistema não dependerá de conexão com a internet, pois toda
 
 # Decisões da refatoração
 
+# 13/11/2026:
+
 ## DEC 14 - Estrutura de armazenamento dos dados
 
 ### Decisão:
 
 Foi definida a utilização de listas e dicionários, porque o código atual só usa variáveis para guardar seus dados. O dicionário permitirá organizar os atributos de cada filme em uma única estrutura, enquanto a lista permitirá armazenar múltiplos filmes.
 
+### Justificativa técnica:
+
+A utilização de uma lista de dicionários permite agrupar os atributos relacionados a cada filme e armazenar múltiplos registros em uma única estrutura. O dicionário organiza as informações por meio de pares de chave e valor, enquanto a lista possibilita adicionar, percorrer e remover registros dinamicamente.
+
 ### Consequência:
 
 O sistema poderá armazenar vários filmes em uma única estrutura, facilitando as operações de cadastro, listagem, atualização e exclusão. A remoção de um filme também fará com que os índices dos elementos seguintes sejam reorganizados automaticamente.
+
+## DEC15 — Utilização de laço de repetição na listagem
+
+### Decisão:
+
+Foi definido o uso da estrutura de repetição `for` na opção 2 do CRUD para percorrer a lista `filmes` e acessar individualmente cada dicionário armazenado.
+
+### Justificativa técnica: 
+
+como a quantidade de filmes cadastrados pode variar, o laço `for` permite percorrer todos os elementos da lista sem precisar criar instruções específicas para cada registro.
+
+### Consequência: 
+a listagem passa a exibir todos os filmes cadastrados, acompanhando automaticamente a quantidade de elementos presentes na lista.
