@@ -82,3 +82,45 @@ como a quantidade de filmes cadastrados pode variar, o laço `for` permite perco
 
 ### Consequência: 
 a listagem passa a exibir todos os filmes cadastrados, acompanhando automaticamente a quantidade de elementos presentes na lista.
+
+## DEC16 — Seleção de filmes por índice
+
+### Decisão:
+
+Foi definido o uso dos índices da lista `filmes` para permitir que o usuário selecione individualmente qual filme deseja atualizar ou excluir. A exibição utiliza uma numeração iniciada em 1, enquanto o código converte a escolha para o índice correspondente da lista, subtraindo 1.
+
+### Justificativa técnica:
+
+As listas em Python utilizam índices que começam em 0, mas a numeração iniciada em 1 facilita a identificação dos filmes pelo usuário. A conversão permite manter uma interação mais intuitiva sem comprometer o acesso correto aos elementos.
+
+### Consequência:
+
+O usuário poderá selecionar um filme específico para realizar operações de atualização e exclusão, sem precisar manipular diretamente os dados da lista.
+
+## DEC17 — Atualização dos dados diretamente no dicionário
+
+### Decisão:
+
+Foi definido que a atualização dos dados de um filme será realizada diretamente no dicionário correspondente ao registro selecionado, modificando os valores associados às suas chaves.
+
+### Justificativa técnica:
+
+Como cada filme é representado por um dicionário, seus atributos podem ser acessados e modificados por meio de suas chaves, como `nome`, `duracao`, `genero`, `sinopse`, `ano` e `nota`. Dessa forma, não é necessário criar outro registro ou reconstruir toda a lista para alterar uma informação.
+
+### Consequência:
+
+O sistema poderá modificar os dados de um filme específico, mantendo sua posição na lista e preservando os demais registros.
+
+## DEC18 — Exclusão de registros utilizando `pop()`
+
+### Decisão:
+
+Foi definido o uso do método `pop()` para excluir um filme selecionado pelo usuário, utilizando o índice correspondente ao registro na lista `filmes`.
+
+### Justificativa técnica:
+
+Durante a implementação, foi necessário compreender a diferença entre os métodos `remove()` e `pop()`. Enquanto `remove()` procura e remove um elemento pelo seu valor, `pop()` permite remover um elemento a partir de sua posição na lista. Como a seleção do filme é feita por índice, `pop()` atende melhor à necessidade da operação.
+
+### Consequência:
+
+O sistema poderá excluir um filme específico da lista. Após a remoção, os elementos seguintes terão seus índices reorganizados automaticamente, mantendo a estrutura da lista atualizada.
