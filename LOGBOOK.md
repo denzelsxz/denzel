@@ -42,9 +42,29 @@ Inicialmente, também utilizei `print(filmes)` para exibir os registros. Embora 
 
 Testei o cadastro de mais de um filme e confirmei que a listagem apresentava os registros corretamente.
 
-**Resultado:** o cadastro e a listagem passaram a utilizar a nova estrutura de lista de dicionários. As opções de atualização e exclusão ainda precisam ser adaptadas.
+**Resultado:** o cadastro e a listagem passaram a utilizar a nova estrutura de lista de dicionários. Com isso, a estrutura de armazenamento deixou de depender de variáveis individuais para representar apenas um filme. As operações de atualização e exclusão foram tratadas em um ciclo separado.
 
 **Documentação relacionada:** DEC14 em `decisoes.md` e REF01 e REF02 em `historico-refatoracao.md`.
+
+## Ciclo 4 — Adaptação das operações de atualização e exclusão
+
+**Data: 15/11/2026**
+
+Após modificar a estrutura de armazenamento, adaptei as operações de atualização e exclusão para que também trabalhassem com a lista de dicionários.
+
+Na opção de atualização, passei a apresentar os filmes cadastrados em uma lista numerada. Para isso, utilizei um laço `for` com `range(len(filmes))`, exibindo `i + 1` ao usuário para que a seleção começasse em 1, embora os índices da lista comecem em 0.
+
+Depois que o usuário escolhe um filme, utilizo o número informado para acessar o registro correspondente na lista. A atualização é feita diretamente nas chaves do dicionário selecionado, substituindo os valores dos atributos escolhidos. Dessa forma, as alterações permanecem no próprio registro armazenado na lista.
+
+Na opção de exclusão, também apresento os filmes cadastrados de forma numerada e solicito que o usuário selecione um deles. Antes de excluir, o programa mostra o filme escolhido e pede uma confirmação. Quando a exclusão é confirmada, utilizo o método `pop()` com o índice correspondente para remover o dicionário da lista. Caso a operação seja cancelada, o registro é mantido.
+
+Essa adaptação exigiu compreender melhor a relação entre os índices da lista e os registros armazenados, além de como acessar e modificar os valores de um dicionário por meio de suas chaves.
+
+**Resultado:** as operações de cadastro, listagem, atualização e exclusão passaram a utilizar a estrutura de lista de dicionários, permitindo que o CRUD trabalhe com vários filmes. A atualização modifica diretamente o registro selecionado, enquanto a exclusão remove o elemento correspondente da lista.
+
+**Testes realizados:** após a implementação, executei testes das opções de atualização e exclusão para verificar o funcionamento das duas operações. O registro confirma que ambas foram testadas; os cenários específicos e os resultados individuais não foram detalhados aqui.
+
+**Documentação relacionada:** DEC14 em `decisoes.md` e registro das alterações REF03 e REF04 em `historico-refatoracao.md`, caso essas referências sejam adicionadas ao histórico.
 
 ---
 
@@ -181,34 +201,70 @@ Essa organização deve permitir que as operações de cadastro, listagem, atual
 
 # PARTE 3 — CAMPO 2: APROFUNDAMENTO
 
-## Objeto de conhecimento
+## Objetos de conhecimento aprofundados
 
-Estruturas de dados em Python, principalmente listas e dicionários, e sua aplicação na organização de registros.
+O aprofundamento esteve relacionado principalmente aos conteúdos mobilizados nos ciclos 3 e 4 do desenvolvimento do CRUD: estruturas de dados (listas e dicionários), iteração com `for`, acesso a elementos por índices, acesso e alteração de valores por chaves, métodos de listas e adaptação de operações já existentes a uma nova organização dos dados.
 
-## Justificativa técnica
+A mudança não envolveu apenas aprender um método isolado. Foi necessário compreender como a nova estrutura de armazenamento afetava o funcionamento do programa como um todo e como cada operação do CRUD deveria interagir com ela.
 
-A estrutura anterior utilizava variáveis individuais para armazenar os atributos de um único filme. Essa organização limitava a capacidade do programa.
+## Problema que motivou o aprofundamento
 
-A utilização de uma lista de dicionários permite agrupar os atributos de cada filme e armazenar vários registros em uma única estrutura.
+Na primeira versão do CRUD, os atributos do filme eram armazenados em variáveis individuais. Essa organização permitia trabalhar com um único filme por vez. Ao perceber essa limitação, precisei pensar em uma forma de reunir os dados de cada filme e, ao mesmo tempo, permitir que o programa armazenasse vários registros.
+
+A partir desse problema, o trabalho foi dividido em duas etapas relacionadas: no ciclo 3, concentrei-me em mudar a estrutura de armazenamento e adaptar o cadastro e a listagem; no ciclo 4, adaptei a atualização e a exclusão para que também funcionassem com a nova estrutura.
+
+## Aprofundamento realizado no Ciclo 3 — Estrutura de armazenamento, cadastro e listagem
+
+### 1. Organização dos dados com lista e dicionários
+
+No ciclo 3, aprofundei a compreensão de como combinar duas estruturas de dados. Passei a utilizar uma lista chamada `filmes` para reunir os registros e um dicionário para organizar os atributos de cada filme.
+
+Essa organização foi escolhida porque cada filme possui um conjunto de informações relacionadas — nome, duração, gênero, sinopse, ano e nota. O dicionário mantém esses atributos agrupados por meio de chaves, enquanto a lista permite armazenar vários desses registros.
+
+Utilizei o método `append()` para inserir cada novo dicionário na lista. Com isso, o cadastro deixou de depender de um conjunto fixo de variáveis individuais e passou a adicionar novos registros à mesma coleção.
+
+### 2. Percorrer a lista e apresentar os filmes
+
+Também precisei adaptar a listagem. Em vez de apresentar um único conjunto de variáveis, passei a percorrer a lista com um laço `for`, acessando os atributos de cada dicionário por suas chaves.
+
+Durante essa implementação, cometi um erro ao utilizar um nome de variável diferente daquele definido no próprio laço. Como consequência, a referência utilizada para acessar os dados não correspondia ao elemento que estava sendo percorrido. Revisei o trecho e corrigi o identificador, compreendendo que a variável do `for` representa, a cada repetição, o elemento atual da lista.
+
+Outro ponto que avaliei foi a forma de exibir os registros. Inicialmente, utilizei `print(filmes)`, que mostrava o conteúdo da lista, mas não apresentava os dados da maneira mais organizada para o usuário. Optei por percorrer os dicionários e imprimir cada atributo separadamente. Aceitei essa organização porque facilita a leitura das informações de cada filme, em vez de apresentar diretamente a estrutura completa da lista.
+
+
+## Aprofundamento realizado no Ciclo 4 — Atualização e exclusão dos registros
+
+A mudança realizada no ciclo 3 exigiu que as operações restantes também fossem adaptadas. No ciclo 4, o desafio foi localizar um filme específico dentro da lista e realizar uma alteração ou remoção sem afetar os demais registros.
+
+### 1. Selecionar e atualizar um filme — opção 3
+
+Na atualização, passei a apresentar os filmes cadastrados em uma lista numerada. Para gerar essa numeração, utilizei `range(len(filmes))` e mostrei `i + 1` ao usuário.
+
+Esse ponto exigiu atenção porque os índices de uma lista em Python começam em zero, enquanto a numeração apresentada ao usuário começa em um. Portanto, para acessar o registro correspondente à opção escolhida, é necessário subtrair um do número informado. Depois de localizar o dicionário, a alteração é feita diretamente em uma de suas chaves, como `filme["nome"]` ou `filme["nota"]`.
+
+Aceitei essa abordagem porque permite selecionar um registro específico e modificar somente o atributo escolhido. Também compreendi que, como a variável `filme` referencia o dicionário que está armazenado na lista, a alteração feita nele permanece no próprio registro, sem precisar adicionar o filme novamente com `append()`.
+
+### 2. Selecionar e excluir um filme — opção 4
+
+Na exclusão, utilizei uma lógica semelhante para apresentar os filmes numerados e permitir que o usuário escolhesse qual registro remover. Antes da remoção, o programa mostra o filme selecionado e solicita uma confirmação.
+
+Durante o desenvolvimento, questionei se poderia utilizar `filmes.remove([1])` para excluir o segundo elemento. A discussão ajudou a esclarecer que `remove()` procura um elemento pelo valor informado, enquanto `pop()` remove o elemento localizado em determinada posição. Como a necessidade do CRUD era excluir o filme escolhido pelo índice, a utilização de `pop(indice - 1)` mostrou-se mais adequada.
+
+Também considerei o que acontece com os índices quando um elemento é removido do meio da lista. Compreendi que os elementos seguintes passam a ocupar posições anteriores. Portanto, o índice representa a posição atual do filme na lista, e não um identificador permanente daquele registro.
+
+Mantive a confirmação antes da exclusão porque ela oferece ao usuário a possibilidade de cancelar a operação. Se a confirmação não for dada, o registro permanece na lista.
 
 ## Referência de estudo
 
-Documentação oficial do Python — Estruturas de dados:
+Utilizei como referência a documentação oficial do Python sobre estruturas de dados, especialmente os conteúdos relacionados a listas, métodos de listas e formas de percorrer sequências:
 
+Documentação oficial do Python — Estruturas de dados:
 https://docs.python.org/3/tutorial/datastructures.html
 
+A documentação serviu como material de consulta para compreender os recursos utilizados na implementação. Relacionei esses conceitos às necessidades concretas do CRUD, em vez de estudá-los apenas de forma isolada.
 
-## Análise crítica do auxílio da IA
+## Síntese do aprofundamento
 
-Durante a refatoração, utilizei a IA como apoio para esclarecer dúvidas e avaliar alternativas de implementação.
+Os ciclos 3 e 4 ampliaram minha compreensão sobre como as estruturas de dados influenciam a organização e o funcionamento de um programa. No ciclo 3, compreendi como agrupar os atributos de cada filme em um dicionário, armazenar vários registros em uma lista e percorrer essa coleção para apresentar os dados. No ciclo 4, apliquei essa estrutura às operações de atualização e exclusão, trabalhando com índices para localizar os registros e com chaves para modificar seus atributos.
 
-Aceitei a utilização de uma lista de dicionários porque a estrutura atende à necessidade de armazenar vários filmes e organizar seus atributos.
-
-Também aceitei a utilização de um laço `for` para percorrer os registros e apresentar os dados individualmente.
-
-Questionei a utilização de `print(filmes)` como forma de listagem. Embora a instrução funcionasse, considerei que apresentar cada atributo separadamente tornaria a saída mais organizada.
-
-Também procurei compreender onde documentar as alterações realizadas, diferenciando as decisões técnicas do histórico de mudanças no código e dos registros pessoais de aprendizagem.
-
-**Observação:**
-Este logbook ainda está em desenvolvimento, logo o campo 2, bem como os ciclos, ainda não estão completos na data desta alteração (13/11/2026)
+Além de implementar as mudanças, precisei avaliar alternativas, questionar o comportamento de métodos e corrigir erros durante o processo. O uso da IA ocorreu como apoio à revisão e à discussão técnica, enquanto a análise do problema, a escrita do código e a decisão de incorporar as alterações permaneceram sob minha responsabilidade.
