@@ -33,3 +33,37 @@ A lógica anterior utilizava variáveis individuais e não era compatível com a
 ### Resultado:
 
 O sistema passou a listar todos os filmes cadastrados, exibindo seus seis atributos individualmente.
+
+# 15/11/2026:
+
+## REF03 - Implementação da atualização de filmes
+
+### Alteração:
+
+A opção 3 do menu foi adaptada para permitir a atualização dos dados de um filme já cadastrado.
+
+Foi implementada uma listagem numerada dos filmes, permitindo que o usuário escolha qual registro deseja modificar. Após a seleção, os valores do dicionário correspondente são atualizados diretamente.
+
+### Motivo:
+
+A estrutura anterior não permitia selecionar e modificar individualmente os filmes armazenados na lista.
+
+### Resultado:
+
+O sistema passou a permitir a atualização dos atributos de um filme específico, mantendo os demais registros da lista.
+
+## REF04 - Implementação da exclusão de filmes
+
+### Alteração:
+
+A opção 4 do menu foi adaptada para permitir a exclusão de um filme selecionado pelo usuário.
+
+Foi utilizada a listagem numerada para identificar o registro e o método `pop()` para removê-lo da lista por meio de seu índice.
+
+### Motivo:
+
+A estrutura anterior não possuía uma operação que permitisse excluir individualmente os filmes cadastrados.
+
+### Resultado:
+
+O sistema passou a permitir a exclusão de filmes específicos da lista, reorganizando automaticamente os índices dos elementos restantes.
