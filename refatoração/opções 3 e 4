@@ -20,7 +20,6 @@ while opcao != 0:
         ano = int(input("Qual o ano de lançamento? "))
         nota = float(input("Qual é a nota? "))
 
-        cadastrado = True
         print("Filme cadastrado com sucesso!")
 
         filme = {
@@ -146,3 +145,10 @@ while opcao != 0:
 
         else:
             print("Nenhum filme cadastrado!")
+
+    elif opcao == 0:
+        print("Programa encerrado")
+        break
+
+    else:
+        print("Digite uma opção válida")
