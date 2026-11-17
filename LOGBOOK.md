@@ -807,10 +807,14 @@ Continuar desenvolvendo e testando as funcionalidades do CRUD, buscando aprimora
 
 **6c. Pergunta que a banca pode fazer — com resposta fundamentada (mínimo 5 linhas):**
 
-- **Pergunta:** _…_
+- **Pergunta:** Por que a utilização de listas e dicionários foi mais adequada para o desenvolvimento do CRUD de filmes do que armazenar cada informação em variáveis individuais?
 - **Resposta:**
 
-> _…_
+Percebi que utilizar variáveis individuais dificultava o armazenamento de vários filmes. As listas permitem armazenar múltiplos registros em uma única estrutura, enquanto os dicionários organizam os atributos de cada filme em pares de chave e valor.
+
+A combinação dessas estruturas facilitou a organização dos dados e a implementação das operações de cadastro, listagem, atualização e exclusão.
+
+Esse aprendizado me ajudou a compreender a importância de escolher estruturas de dados adequadas para resolver problemas e desenvolver programas mais organizados.
 
 **Objeto de conhecimento mobilizado:** _…_
 **Fonte:** _…_
@@ -889,17 +893,17 @@ Continuar desenvolvendo e testando as funcionalidades do CRUD, buscando aprimora
 
 *Evidência rastreável de aprendizagem entre o início e o encerramento do ciclo AFP.*
 
-**7a. O que eu pensava no início do ciclo (com base no Campo 01 — registrar a hipótese inicial e os objetos de conhecimento que achava conhecer):**
+**7a. O que eu pensava no início do ciclo (com base no Campo 01)**
 
-> _…_
+No início, eu acreditava que já compreendia os conceitos básicos de lógica de programação, como variáveis, funções, estruturas condicionais e operadores lógicos. Porém, ainda tinha dificuldades com estruturas de repetição e organização de dados. Minha hipótese inicial era que, para armazenar vários filmes no sistema, seria necessário utilizar variáveis individuais. Ainda não compreendia como listas e dicionários poderiam resolver essa limitação.
 
-**7b. O que aprendi — conceitos, princípios ou relações técnicas que não dominava no início e que agora consigo explicar com precisão (mínimo 3 objetos de conhecimento):**
+**7b. O que aprendi — conceitos, princípios ou relações técnicas que não dominava no início**
 
-| OBJETO DE CONHECIMENTO | O QUE EU NÃO DOMINAVA | O QUE APRENDI E CONSIGO DEMONSTRAR | EVIDÊNCIA (campo do Logbook onde aparece) |
+| OBJETO DE CONHECIMENTO | O QUE EU NÃO DOMINAVA | O QUE APRENDI E CONSIGO DEMONSTRAR | EVIDÊNCIA |
 |---|---|---|---|
-| _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ |
+| **Listas e dicionários** | Não compreendia como armazenar e organizar vários filmes de maneira estruturada. | Aprendi que listas armazenam vários registros e dicionários organizam os atributos de cada filme por meio de chaves e valores. | Campo 02 e Ciclo 02 |
+| **Estruturas condicionais e operadores** | Tinha dificuldades para compreender a aplicação das condições e a diferença entre atribuição (`=`) e comparação (`==`). | Compreendi como `if`, `elif` e `else` controlam decisões no programa e como os operadores permitem construir condições lógicas. | Ciclos 03 e 04 |
+| **Estruturas de repetição** | Não compreendia completamente como manter o programa em execução e percorrer os registros armazenados. | Aprendi a utilizar `while` para repetir o menu enquanto o usuário não escolhe sair e `for` para percorrer elementos de uma coleção. | Campo 01, Campo 02 e Ciclos 02 e 04 |
 
 **7c. Conceitos que precisei corrigir ao longo do ciclo — onde eu estava equivocado e o que o corrigiu (Fechamento Teórico, pesquisa, Peer Review, arguição):**
 
